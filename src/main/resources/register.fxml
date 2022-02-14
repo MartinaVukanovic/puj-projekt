@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Hyperlink?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="300.0" prefWidth="480.0" style="-fx-background-color: #c0d6df;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.pujprojekt.controller.RegisterController">
+   <children>
+      <Label layoutX="323.0" layoutY="36.0" text="User name" textFill="#4f6d7a">
+         <font>
+            <Font name="Century Gothic" size="12.0" />
+         </font></Label>
+      <TextField fx:id="UserName" layoutX="281.0" layoutY="54.0" style="-fx-background-radius: 5px;" />
+      <Label layoutX="314.0" layoutY="91.0" text="Email address" textFill="#4f6d7a" AnchorPane.topAnchor="90.0">
+         <font>
+            <Font name="Century Gothic" size="12.0" />
+         </font></Label>
+      <TextField fx:id="UserEmail" layoutX="281.0" layoutY="107.0" style="-fx-background-radius: 5px;" />
+      <Label layoutX="327.0" layoutY="142.0" text="Password" textFill="#4f6d7a" AnchorPane.topAnchor="144.0">
+         <font>
+            <Font name="Century Gothic" size="12.0" />
+         </font></Label>
+      <PasswordField fx:id="UserPassword" layoutX="281.0" layoutY="162.0" style="-fx-background-radius: 5px;" />
+      <Button layoutX="319.0" layoutY="199.0" mnemonicParsing="false" onAction="#Register" prefWidth="70.0" style="-fx-background-color: #4F6D7A; -fx-background-radius: 6px;" text="Register" textFill="WHITE">
+         <font>
+            <Font name="Century Gothic" size="12.0" />
+         </font></Button>
+      <Hyperlink layoutX="272.0" layoutY="241.0" onAction="#GoToLogin" text="Already have an account?" textFill="#4f6d7a">
+         <font>
+            <Font name="Century Gothic" size="12.0" />
+         </font></Hyperlink>
+      <Pane prefHeight="300.0" prefWidth="264.0" style="-fx-background-color: #c0d6df;">
+         <children>
+            <ImageView fx:id="registerImg" fitHeight="182.0" fitWidth="264.0" layoutY="59.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@img/registerImg.png" />
+               </image></ImageView>
+
+         </children>
+      </Pane>
+      <Label fx:id="errorMsg" alignment="CENTER" contentDisplay="CENTER" layoutX="29.0" layoutY="18.0" prefHeight="18.0" prefWidth="422.0" text=" " textAlignment="CENTER" textFill="#ff442b">
+         <font>
+            <Font name="Century Gothic Bold" size="12.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>

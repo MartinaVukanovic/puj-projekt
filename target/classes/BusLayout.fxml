@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+
+<AnchorPane prefHeight="500.0" prefWidth="700.0" style="-fx-background-color: 4F6D7A;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.example.pujprojekt.controller.BusLayoutController">
+   <children>
+      <Button fx:id="botun" layoutX="486.0" layoutY="346.0" mnemonicParsing="false" onAction="#add" prefHeight="25.0" prefWidth="141.0" style="-fx-background-color: DD6E42; -fx-background-radius: 0px;" text="show available seats" textFill="WHITE" />
+      <HBox fx:id="container2" layoutX="65.0" layoutY="52.0" prefHeight="26.0" prefWidth="300.0" snapToPixel="false" />
+      <HBox fx:id="container21" layoutX="65.0" layoutY="79.0" maxWidth="300.0" minWidth="300.0" prefHeight="26.0" prefWidth="300.0" snapToPixel="false">
+         <opaqueInsets>
+            <Insets />
+         </opaqueInsets>
+      </HBox>
+      <HBox fx:id="container22" layoutX="65.0" layoutY="160.0" prefHeight="26.0" prefWidth="300.0" snapToPixel="false" />
+      <HBox fx:id="container221" layoutX="65.0" layoutY="187.0" prefHeight="26.0" prefWidth="300.0" snapToPixel="false" />
+      <ImageView fitHeight="200.0" fitWidth="220.0" layoutX="232.0" layoutY="259.0" pickOnBounds="true">
+         <image>
+            <Image url="@img/choice.png" />
+         </image>
+      </ImageView>
+   </children>
+</AnchorPane>
