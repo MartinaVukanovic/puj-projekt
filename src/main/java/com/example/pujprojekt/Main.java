@@ -18,22 +18,22 @@ public class Main extends Application {
     public void start(Stage stage) throws IOException {
 
         try {
-
-            Parent root = FXMLLoader.load(getClass().getResource("/register.fxml"));
+/*
+            Parent root = FXMLLoader.load(getClass().getResource("/adminPanel.fxml"));
             stage.setTitle("Register");
             Scene scene = new Scene(root);
             stage.setScene(scene);
             stage.show();
-
+*/
         } catch(Exception e) {
-            e.printStackTrace();
+            System.out.println(e.getMessage());
         }
 
 
         Main.primaryStage = stage;
-       /*  Main.showWindow(
-                "register.fxml",
-                "Register", 480, 300); */
+         Main.showWindow(
+                "/Register.fxml",
+                "Register", 480, 300);
     }
 
     public static void showWindow(String viewName, String title, int w, int h) throws IOException {

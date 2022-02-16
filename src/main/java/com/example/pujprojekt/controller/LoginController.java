@@ -96,12 +96,20 @@ public class LoginController {
                 } catch (Exception e) {
                     System.out.println(e.getMessage());
                 }
-            } else {
+            } else if(!role.equals("admin")) {
                 try {
 
-                    Main.showWindow(
-                            "/register.fxml",
-                            "Register", 480, 300);
+
+                    FXMLLoader loader = new FXMLLoader(getClass().getResource("/userView.fxml"));
+                    root = loader.load();
+
+                    UserViewController scene2Controller = loader.getController();
+                    scene2Controller.display(username);
+
+                    stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+                    scene = new Scene(root);
+                    stage.setScene(scene);
+                    stage.show();
 
                 } catch (Exception e) {
                     System.out.println(e.getMessage());

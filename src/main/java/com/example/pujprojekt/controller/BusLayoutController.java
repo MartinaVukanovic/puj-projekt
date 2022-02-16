@@ -15,16 +15,33 @@ import javafx.scene.layout.*;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 
+import java.io.IOException;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
 
 public class BusLayoutController {
+
     public static Integer id_BusSeat;
     public static Integer numberOfSeat;
     public static Integer capacity_Bus;
     public static Integer free;
+
+    @FXML
+    Label labela;
+
+    @FXML
+    Label startPoint;
+
+    @FXML
+    Label endPoint;
+
+    @FXML
+    Label Price;
+
+    @FXML
+    Label busCompany;
 
     @FXML
     private HBox container2;
@@ -42,6 +59,14 @@ public class BusLayoutController {
 
     @FXML
     private List<Button> labels ;
+
+    @FXML
+    protected void goToUserView() throws IOException {
+        Main.showWindow(
+                "/userView.fxml",
+                "User view", 600, 330);
+    }
+
 
     public Connection bazaLink;
 
@@ -62,20 +87,15 @@ public class BusLayoutController {
         return bazaLink;
     }
 
-    public void add() throws SQLException {
-        make();
-        botun.setVisible(false);
-    }
 
-
-    public void make() throws SQLException {
+    public void make(int bus_fk) throws SQLException {
 
 
         Database connectNow = new Database();
         Connection connectDB = connectNow.getConnection();
 
 
-        String findBus = "SELECT * FROM Bus WHERE id = '1'";
+        String findBus = "SELECT * FROM Bus WHERE id = '"+bus_fk+"'";
         Statement BusStatement = connectDB.createStatement();
         ResultSet BusResult = BusStatement.executeQuery(findBus);
 
@@ -84,7 +104,7 @@ public class BusLayoutController {
             capacity_Bus = capacity_Bus-1;
 
 
-        String findBusSeat = "SELECT * FROM BusSeat WHERE bus_fk = '1'";
+        String findBusSeat = "SELECT * FROM BusSeat WHERE bus_fk = '"+bus_fk+"'";
         Statement statement = connectDB.createStatement();
         ResultSet queryResult = statement.executeQuery(findBusSeat);
 
@@ -118,7 +138,7 @@ public class BusLayoutController {
 
 
                 label.setOnAction(event -> {
-                    String updateBusSeat = "UPDATE `busseat` SET `free`='1' WHERE id ='" +  id +"'";
+                    String updateBusSeat = "UPDATE `busseat` SET `free`='1' WHERE id ='" + id + "'";
                     Statement statement1 = null;
                     try {
                         statement1 = connectDB.createStatement();
@@ -175,7 +195,7 @@ public class BusLayoutController {
                     }
 
                     label.setOnAction(event -> {
-                        String updateBusSeat = "UPDATE `busseat` SET `free`='1' WHERE id ='" +  id +"'";
+                        String updateBusSeat = "UPDATE `busseat` SET `free`='1' WHERE id ='" + id + "'";
                         Statement statement1 = null;
                         try {
                             statement1 = connectDB.createStatement();
@@ -229,7 +249,7 @@ public class BusLayoutController {
                     }
 
                     label.setOnAction(event -> {
-                        String updateBusSeat = "UPDATE `busseat` SET `free`='1' WHERE id ='" +  id +"'";
+                        String updateBusSeat = "UPDATE `busseat` SET `free`='1' WHERE id ='" + id + "'";
                         Statement statement1 = null;
                         try {
                             statement1 = connectDB.createStatement();
@@ -238,7 +258,7 @@ public class BusLayoutController {
                         }
                         try {
                             int resultOfUpdate = statement1.executeUpdate(updateBusSeat);
-                            System.out.println(resultOfUpdate + "rez");
+
                         } catch (SQLException e) {
                             System.out.println(e.getMessage());
                         }
@@ -280,7 +300,7 @@ public class BusLayoutController {
                     }
 
                     label.setOnAction(event -> {
-                        String updateBusSeat = "UPDATE `busseat` SET `free`='1' WHERE id ='" +  id +"'";
+                        String updateBusSeat = "UPDATE `busseat` SET `free`='1' WHERE id ='" + id + "'";
                         Statement statement1 = null;
                         try {
                             statement1 = connectDB.createStatement();
@@ -294,7 +314,6 @@ public class BusLayoutController {
                             System.out.println(e.getMessage());
                         }
 
-                        System.out.println(id);
 
                     });
 
@@ -305,5 +324,14 @@ public class BusLayoutController {
 
                 }}
         }
+    }
+
+    public void display(int bus_fk, String start, String end, int price) throws SQLException {
+        startPoint.setText("start point: "  + " " + start);
+        endPoint.setText("end point: " + " " + end);
+        Price.setText("price of: " + " " + price + " €");
+        busCompany.setText("bus company: " + " " + bus_fk); // da se ispise ime
+        make(bus_fk);
+
     }
 }

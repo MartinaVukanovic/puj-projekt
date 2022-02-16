@@ -1,6 +1,6 @@
 package com.example.pujprojekt.model;
 
-public class Ticket {
+public class Ticket extends Table {
 
     @Entity(type="INTEGER", size=32, primary = true)
     int id;
@@ -62,8 +62,8 @@ public class Ticket {
         End = end;
     }
 
-    public Bus getBus_fk() throws Exception {
-        return (Bus) Table.get(Bus.class, bus_fk);
+    public int getBus_fk() throws Exception {
+        return bus_fk;
     }
 
     public void setBus_fk(int bus_fk) {

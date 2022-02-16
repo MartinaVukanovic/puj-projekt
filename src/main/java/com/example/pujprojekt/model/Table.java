@@ -138,6 +138,31 @@ public class Table {
             id.set(this, rs.getInt(1));
         }
     }
+
+
+
+    /*
+        sql kod za automatsko ubacivanje busseats
+
+            StringBuilder sql_builder = new StringBuilder();
+
+            sql_builder.append(
+            "BEGIN
+                START TRANSACTION;
+                WHILE p_cur <= p_max do
+                    INSERT INTO `busseat`(`id`,`number`, `free`,`bus_fk`) VALUES (p_cur,numb, 0, 3);
+                    SET p_cur = p_cur + 1;
+                    SET numb = numb + 1;
+                END WHILE;
+                COMMIT;
+            END"
+            );
+
+    */
+
+
+
+
     public void update() throws Exception {
         String tableName = getTableName(getClass());
         StringBuilder UPDATE_SQL_QUERY = new StringBuilder();
@@ -197,6 +222,25 @@ public class Table {
     public static List<?> list(Class cls) throws Exception {
         String tableName = getTableName(cls);
         String SQL = "SELECT * FROM " + tableName;
+        Statement stmt = Database.CONNECTION.createStatement();
+        ResultSet rs = stmt.executeQuery(SQL);
+
+        List<Object> list = new ArrayList<>();
+        while(rs.next()){
+            Object obj = Class.forName(cls.getName()).newInstance();
+            Class<?> otherCls = obj.getClass();
+            for (Field f : otherCls.getDeclaredFields()){
+                f.set(obj, rs.getObject(f.getName()));
+            }
+            list.add(obj);
+        }
+        return list;
+    }
+
+
+    public static List<?> listTicket(Class cls) throws Exception {
+        String tableName = getTableName(cls);
+        String SQL = "SELECT * FROM Ticket INNER JOIN Bus ON Ticket.bus_fk = Bus.id";
         Statement stmt = Database.CONNECTION.createStatement();
         ResultSet rs = stmt.executeQuery(SQL);
 

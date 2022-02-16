@@ -1,7 +1,5 @@
 package com.example.pujprojekt.model;
 
-import javafx.scene.control.TextField;
-
 public class Bus extends Table{
     @Entity(type="INTEGER", size=30, primary = true)
     int id;

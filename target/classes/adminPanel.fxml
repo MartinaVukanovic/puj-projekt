@@ -2,14 +2,12 @@
 
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.image.Image?>
-<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="400.0" prefWidth="650.0" style="-fx-background-color: #7A999F;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.pujprojekt.controller.AdminPanelController">
+<AnchorPane prefHeight="480.0" prefWidth="655.0" style="-fx-background-color: #7A999F;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.pujprojekt.controller.AdminPanelController">
    <children>
-      <AnchorPane prefHeight="401.0" prefWidth="144.0" style="-fx-background-color: #4F6D7A;">
+      <AnchorPane prefHeight="486.0" prefWidth="144.0" style="-fx-background-color: #4F6D7A;" AnchorPane.bottomAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
             <Label fx:id="adminName" alignment="CENTER" layoutY="35.0" maxWidth="148.0" prefHeight="43.0" prefWidth="144.0" text="martinav01" textAlignment="CENTER" textFill="WHITE">
                <font>
@@ -21,66 +19,126 @@
                   <Font name="Century Gothic" size="12.0" />
                </font>
             </Label>
-            <Button layoutX="44.0" layoutY="340.0" mnemonicParsing="false" onAction="#GoToLogin" style="-fx-background-color: #4F6D7A;" text="sign out" textFill="#c0d6df" />
+            <Button layoutX="44.0" layoutY="406.0" mnemonicParsing="false" onAction="#GoToLogin" style="-fx-background-color: #4F6D7A;" text="sign out" textFill="#c0d6df" />
+            <Button fx:id="botun" layoutX="27.0" layoutY="120.0" mnemonicParsing="false" onAction="#show" prefHeight="23.0" prefWidth="90.0" style="-fx-background-color: E3A47A;" text="show data" textFill="WHITE">
+               <font>
+                  <Font name="Century Gothic Bold" size="12.0" />
+               </font></Button>
          </children>
       </AnchorPane>
-      <AnchorPane layoutX="164.0" layoutY="21.0" prefHeight="100.0" prefWidth="470.0" style="-fx-background-color: E3A47A; -fx-background-radius: 5;">
+      <AnchorPane layoutX="164.0" layoutY="21.0" prefHeight="108.0" prefWidth="470.0" style="-fx-background-color: E3A47A; -fx-background-radius: 5;">
          <children>
-            <Label layoutX="21.0" layoutY="15.0" text="add new users" textFill="WHITE" AnchorPane.leftAnchor="21.0" AnchorPane.topAnchor="15.0">
+            <Label layoutX="22.0" layoutY="16.0" text="add new users" textFill="WHITE" AnchorPane.leftAnchor="22.0" AnchorPane.topAnchor="16.0">
                <font>
-                  <Font name="System Bold" size="16.0" />
+                  <Font name="System Bold" size="18.0" />
                </font>
             </Label>
-            <Label layoutX="21.0" layoutY="38.0" text="edit existing users" textFill="WHITE" AnchorPane.leftAnchor="21.0" AnchorPane.topAnchor="38.0">
+            <Label layoutX="23.0" layoutY="39.0" text="edit existing users" textFill="WHITE" AnchorPane.leftAnchor="23.0" AnchorPane.topAnchor="39.0">
                <font>
-                  <Font name="System Bold" size="16.0" />
+                  <Font name="System Bold" size="18.0" />
                </font>
             </Label>
-            <Label layoutX="21.0" layoutY="61.0" text="delete existing users" textFill="WHITE" AnchorPane.leftAnchor="21.0" AnchorPane.topAnchor="61.0">
+            <Label layoutX="23.0" layoutY="64.0" text="delete existing users" textFill="WHITE" AnchorPane.leftAnchor="23.0" AnchorPane.topAnchor="64.0">
                <font>
-                  <Font name="System Bold" size="16.0" />
+                  <Font name="System Bold" size="18.0" />
                </font>
             </Label>
-            <Button alignment="CENTER" layoutX="295.0" layoutY="38.0" mnemonicParsing="false" onAction="#goToAllUsers" prefHeight="23.0" prefWidth="130.0" style="-fx-background-color: #E8DAB2; -fx-background-radius: 5;" text="see all users" textFill="#aa5e55">
+            <Button alignment="CENTER" layoutX="289.0" layoutY="42.0" mnemonicParsing="false" onAction="#goToAllUsers" prefHeight="23.0" prefWidth="130.0" style="-fx-background-color: E9DDBA; -fx-background-radius: 5;" text="see all users" textFill="#aa5e55">
                <font>
                   <Font name="Century Gothic Bold" size="13.0" />
                </font>
             </Button>
          </children>
       </AnchorPane>
-      <AnchorPane layoutX="164.0" layoutY="157.0" prefHeight="100.0" prefWidth="130.0" style="-fx-background-color: #E8DAB2; -fx-background-radius: 5;" AnchorPane.leftAnchor="164.0">
+      <AnchorPane layoutX="164.0" layoutY="157.0" prefHeight="100.0" prefWidth="140.0" style="-fx-background-color: #E8DAB2; -fx-background-radius: 5;" AnchorPane.leftAnchor="164.0">
          <children>
-            <Label alignment="CENTER" layoutY="14.0" prefHeight="15.0" prefWidth="130.0" text="number of sign ups " textFill="#9e564e">
+            <Label alignment="CENTER" layoutY="14.0" prefHeight="15.0" prefWidth="140.0" text="number of sign ups " textFill="#9e564e">
                <font>
                   <Font name="Century Gothic Bold" size="12.0" />
                </font>
             </Label>
-            <Label fx:id="numberOfSignUps" alignment="CENTER" contentDisplay="CENTER" layoutY="35.0" prefHeight="51.0" prefWidth="130.0" text="0" textAlignment="CENTER" AnchorPane.leftAnchor="0.0">
+            <Label fx:id="numberOfSignUps" alignment="CENTER" contentDisplay="CENTER" layoutY="31.0" prefHeight="51.0" prefWidth="130.0" text=" " textAlignment="CENTER">
                <font>
-                  <Font name="Century Gothic Bold" size="40.0" />
+                  <Font name="Century Gothic Bold" size="42.0" />
                </font>
             </Label>
          </children>
       </AnchorPane>
-      <AnchorPane layoutX="505.0" layoutY="157.0" prefHeight="100.0" prefWidth="130.0" style="-fx-background-color: #E8DAB2; -fx-background-radius: 5;">
+      <AnchorPane layoutX="329.0" layoutY="157.0" prefHeight="100.0" prefWidth="130.0" style="-fx-background-color: #E8DAB2; -fx-background-radius: 5;">
+         <children>
+            <Label alignment="CENTER" layoutY="14.0" prefHeight="15.0" prefWidth="140.0" style="-fx-font-weight: bold;" text="number of relations" textFill="#9e564e" AnchorPane.rightAnchor="0.0">
+               <font>
+                  <Font name="Century Gothic" size="12.0" />
+               </font>
+            </Label>
+            <Label fx:id="numberOfRelations" alignment="CENTER" contentDisplay="CENTER" layoutY="31.0" prefHeight="51.0" prefWidth="140.0" text=" " textAlignment="CENTER" AnchorPane.rightAnchor="0.0">
+               <font>
+                  <Font name="Century Gothic Bold" size="42.0" />
+               </font>
+            </Label>
+         </children>
+      </AnchorPane>
+      <AnchorPane layoutX="164.0" layoutY="287.0" prefHeight="173.0" prefWidth="222.0" style="-fx-background-color: #AAB6A2; -fx-background-radius: 5;">
+         <children>
+            <Label alignment="CENTER" layoutX="2.0" layoutY="49.0" prefHeight="18.0" prefWidth="220.0" text="edit existing buses" textFill="WHITE">
+               <font>
+                  <Font name="Century Gothic Bold" size="18.0" />
+               </font>
+            </Label>
+            <Label alignment="CENTER" layoutY="72.0" prefHeight="18.0" prefWidth="220.0" text="delete existing buses" textFill="WHITE">
+               <font>
+                  <Font name="Century Gothic Bold" size="18.0" />
+               </font>
+            </Label>
+            <Label alignment="CENTER" layoutY="26.0" prefHeight="18.0" prefWidth="220.0" text="add new bus" textFill="WHITE">
+               <font>
+                  <Font name="Century Gothic Bold" size="18.0" />
+               </font>
+            </Label>
+            <Button layoutX="52.0" layoutY="121.0" mnemonicParsing="false" onAction="#goToAllBuses" prefHeight="23.0" prefWidth="120.0" style="-fx-background-color: DAEBCF; -fx-background-radius: 4;" text="show all buses">
+               <font>
+                  <Font name="Century Gothic Bold" size="13.0" />
+               </font>
+            </Button>
+         </children>
+      </AnchorPane>
+      <AnchorPane layoutX="407.0" layoutY="286.0" prefHeight="174.0" prefWidth="226.0" style="-fx-background-color: #9DACB2; -fx-background-radius: 5;">
+         <children>
+            <Label alignment="CENTER" layoutX="4.0" layoutY="28.0" prefHeight="18.0" prefWidth="220.0" text="add new relation" textFill="WHITE">
+               <font>
+                  <Font name="Century Gothic Bold" size="18.0" />
+               </font>
+            </Label>
+            <Label alignment="CENTER" layoutX="2.0" layoutY="51.0" prefHeight="18.0" prefWidth="220.0" text="edit existing relation" textFill="WHITE">
+               <font>
+                  <Font name="Century Gothic Bold" size="18.0" />
+               </font>
+            </Label>
+            <Label alignment="CENTER" layoutX="2.0" layoutY="74.0" prefHeight="18.0" prefWidth="220.0" text="delete existing relation" textFill="WHITE">
+               <font>
+                  <Font name="Century Gothic Bold" size="18.0" />
+               </font>
+            </Label>
+            <Button layoutX="48.0" layoutY="124.0" mnemonicParsing="false" onAction="#goToAllRelations" prefHeight="24.0" prefWidth="130.0" style="-fx-background-color: C7DAE1; -fx-background-radius: 4;" text="show all relations">
+               <font>
+                  <Font name="Century Gothic Bold" size="13.0" />
+               </font>
+            </Button>
+         </children>
+      </AnchorPane>
+      <AnchorPane layoutX="494.0" layoutY="157.0" prefHeight="100.0" prefWidth="130.0" style="-fx-background-color: #E8DAB2; -fx-background-radius: 5;">
          <children>
             <Label alignment="CENTER" layoutY="14.0" prefHeight="15.0" prefWidth="130.0" style="-fx-font-weight: bold;" text="number of buses" textFill="#9e564e" AnchorPane.rightAnchor="0.0">
                <font>
                   <Font name="Century Gothic" size="12.0" />
                </font>
             </Label>
-            <Label fx:id="numberOfBuses" alignment="CENTER" contentDisplay="CENTER" layoutY="35.0" prefHeight="51.0" prefWidth="130.0" text="0" textAlignment="CENTER" AnchorPane.rightAnchor="0.0">
+            <Label fx:id="numberOfBuses" alignment="CENTER" contentDisplay="CENTER" layoutY="29.0" prefHeight="51.0" prefWidth="140.0" text=" " textAlignment="CENTER" AnchorPane.rightAnchor="0.0">
                <font>
-                  <Font name="Century Gothic Bold" size="40.0" />
+                  <Font name="Century Gothic Bold" size="42.0" />
                </font>
             </Label>
          </children>
       </AnchorPane>
-      <ImageView fitHeight="159.0" fitWidth="210.0" layoutX="312.0" layoutY="128.0" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="312.0">
-         <image>
-            <Image url="@img/adminPanelImg.png" />
-         </image>
-      </ImageView>
-      <Button fx:id="botun" layoutX="341.0" layoutY="320.0" mnemonicParsing="false" onAction="#show" text="refresh" />
    </children>
 </AnchorPane>

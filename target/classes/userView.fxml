@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane onMouseClicked="#removeSelection" prefHeight="336.0" prefWidth="600.0" style="-fx-background-color: #9DACB2;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.pujprojekt.controller.UserViewController">
+    <children>
+        <Button layoutX="519.0" layoutY="15.0" mnemonicParsing="false" onAction="#goToLogin" style="-fx-background-color: #9DACB2;" text="sign out" textFill="WHITE">
+            <font>
+                <Font name="Century Gothic" size="13.0" />
+            </font>
+        </Button>
+        <Label fx:id="labela" alignment="CENTER" layoutX="127.0" layoutY="45.0" prefHeight="18.0" prefWidth="297.0" text=" " textFill="#e8dab2">
+            <font>
+                <Font name="Century Gothic Bold" size="12.0" />
+            </font>
+        </Label>
+        <TableView fx:id="UserTbl" layoutX="54.0" layoutY="87.0" onMouseClicked="#selectUser" prefHeight="180.0" prefWidth="444.0" style="-fx-background-color: EAEAEA;">
+            <columns>
+                <TableColumn fx:id="RelationStart" prefWidth="115.0" text="start" />
+                <TableColumn fx:id="RelationEnd" prefWidth="109.60003662109375" text="end" />
+                <TableColumn fx:id="RelationPrice" prefWidth="75.99993896484375" text="price" />
+                <TableColumn fx:id="RelationBusCompany" prefWidth="138.0" text="bus company" />
+            </columns>
+        </TableView>
+        <Button fx:id="choose" layoutX="195.0" layoutY="281.0" mnemonicParsing="false" onAction="#goToBusLayout" prefHeight="27.0" prefWidth="162.0" style="-fx-background-color: #EAEAEA; -fx-background-radius: 5;" text="choose this relation" textFill="#47565c">
+            <font>
+                <Font name="Century Gothic" size="12.0" />
+            </font>
+        </Button>
+      <Label fx:id="welcome" layoutX="35.0" layoutY="27.0" text=" " textFill="WHITE">
+         <font>
+            <Font name="Century Gothic" size="14.0" />
+         </font>
+      </Label>
+    </children>
+</AnchorPane>

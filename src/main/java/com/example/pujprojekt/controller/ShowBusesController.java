@@ -1,6 +1,7 @@
 package com.example.pujprojekt.controller;
 
 
+import com.example.pujprojekt.model.Bus;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import com.example.pujprojekt.Main;
@@ -17,44 +18,36 @@ import java.net.URL;
 import java.util.List;
 import java.util.ResourceBundle;
 
-public class ShowUsersController implements Initializable {
+public class ShowBusesController implements Initializable {
 
     @FXML
     Label labela;
 
     @FXML
-    TextField UserNameTxt;
+    TextField BusNameTxt;
 
     @FXML
-    TextField UserEmailTxt;
-
-    @FXML
-    TextField UserRoleTxt;
-
-    @FXML
-    PasswordField UserPasswordTxt;
+    TextField BusCapacityTxt;
 
 
     @FXML
     TableView UserTbl;
 
     @FXML
-    TableColumn UserID;
+    TableColumn BusID;
 
     @FXML
-    TableColumn UserName;
+    TableColumn BusName;
 
     @FXML
-    TableColumn UserEmail;
+    TableColumn BusCapacity;
 
-    @FXML
-    TableColumn UserRole;
 
     @FXML
     Button addUserBtn;
 
 
-    User selectedUser = null;
+    Bus selectedUser = null;
 
 
     @FXML
@@ -66,36 +59,28 @@ public class ShowUsersController implements Initializable {
 
     @FXML
     protected void addUser (){
-        String name = this.UserNameTxt.getText();
-        String email = this.UserEmailTxt.getText();
-        String role = this.UserRoleTxt.getText();
-        String password = this.UserPasswordTxt.getText();
+        String name = this.BusNameTxt.getText();
+        String capacity = this.BusCapacityTxt.getText();
 
 
-        if (name.equals("") || email.equals("") || role.equals("") || password.equals("") ){
+        if (name.equals("") || capacity.equals("") ){
             labela.setText("All fields are required!");
         } else
         if (this.selectedUser == null){
-            User c = new User();
+            Bus c = new Bus();
             c.setName(name);
-            c.setEmail(email);
-            c.setRole(role);
-            c.setPassword(password);
+            c.setCapacity(Integer.parseInt(capacity));
             try {
                 c.save();
-                this.UserNameTxt.setText("");
-                this.UserEmailTxt.setText("");
-                this.UserRoleTxt.setText("");
-                this.UserPasswordTxt.setText("");
+                this.BusNameTxt.setText("");
+                this.BusCapacityTxt.setText("");
                 this.fillUsers();
             } catch (Exception e) {
                 System.out.println(e.getMessage());
             }
         } else {
             this.selectedUser.setName(name);
-            this.selectedUser.setRole(role);
-            this.selectedUser.setEmail(email);
-            this.selectedUser.setPassword(password);
+            this.selectedUser.setCapacity(Integer.parseInt(capacity));
             try {
                 this.selectedUser.update();
                 this.removeSelection();
@@ -108,17 +93,16 @@ public class ShowUsersController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        this.UserID.setCellValueFactory(new PropertyValueFactory<>("id"));
-        this.UserName.setCellValueFactory(new PropertyValueFactory<>("name"));
-        this.UserEmail.setCellValueFactory(new PropertyValueFactory<>("email"));
-        this.UserRole.setCellValueFactory(new PropertyValueFactory<>("role"));
+        this.BusID.setCellValueFactory(new PropertyValueFactory<>("id"));
+        this.BusName.setCellValueFactory(new PropertyValueFactory<>("name"));
+        this.BusCapacity.setCellValueFactory(new PropertyValueFactory<>("capacity"));
 
         this.fillUsers();
     }
 
     private void fillUsers(){
         try {
-            List<?> usersList = Table.list(User.class);
+            List<?> usersList = Table.list(Bus.class);
             ObservableList<?> usersObservableList = FXCollections.observableList(usersList);
             this.UserTbl.setItems(usersObservableList);
         } catch (Exception e) {
@@ -136,27 +120,23 @@ public class ShowUsersController implements Initializable {
                 System.out.println(e.getMessage());
             }
         } else {
-            labela.setText("Please select the user you want to delete!");
+            labela.setText("Please select the bus you want to delete!");
         }
     }
 
     @FXML
     protected void selectUser(){
-        this.selectedUser = (User) this.UserTbl.getSelectionModel().getSelectedItem();
-        this.UserNameTxt.setText(this.selectedUser.getName());
-        this.UserEmailTxt.setText(this.selectedUser.getEmail());
-        this.UserRoleTxt.setText(this.selectedUser.getRole());
-        this.UserPasswordTxt.setText(this.selectedUser.getPassword());
+        this.selectedUser = (Bus) this.UserTbl.getSelectionModel().getSelectedItem();
+        this.BusNameTxt.setText(this.selectedUser.getName());
+        this.BusCapacityTxt.setText(""+this.selectedUser.getCapacity());
     }
 
     @FXML
     protected void removeSelection(){
         this.selectedUser = null;
         this.fillUsers();
-        this.UserNameTxt.setText("");
-        this.UserEmailTxt.setText("");
-        this.UserRoleTxt.setText("");
-        this.UserPasswordTxt.setText("");
+        this.BusNameTxt.setText("");
+        this.BusCapacityTxt.setText("");
     }
 }
 

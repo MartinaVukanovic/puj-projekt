@@ -13,10 +13,16 @@ import java.sql.*;
 public class AdminPanelController {
 
     @FXML
+    Label labela;
+
+    @FXML
     Label adminName;
 
     @FXML
     Label numberOfSignUps;
+
+    @FXML
+    Label numberOfRelations;
 
     @FXML
     Label numberOfBuses;
@@ -41,6 +47,20 @@ public class AdminPanelController {
         Main.showWindow(
                 "/showUsers.fxml",
                 "all users", 650, 355);
+    }
+
+    @FXML
+    protected void goToAllBuses() throws IOException {
+        Main.showWindow(
+                "/showBuses.fxml",
+                "all buses", 630, 295);
+    }
+
+    @FXML
+    protected void goToAllRelations() throws IOException {
+        Main.showWindow(
+                "/showRelations.fxml",
+                "all relations", 620, 395);
     }
 
 
@@ -69,6 +89,7 @@ public class AdminPanelController {
         Connection connectDB = connectNow.getConnection();
 
 
+
         String countUsers = "SELECT COUNT(*) FROM User";
 
         Statement BusesStatement = connectDB.createStatement();
@@ -79,6 +100,7 @@ public class AdminPanelController {
             nUsers = (countBuses_result.getInt(1));
         }
         numberOfSignUps.setText(""+nUsers);
+
 
 
         String countBuses = "SELECT COUNT(id) FROM Bus";
@@ -92,6 +114,29 @@ public class AdminPanelController {
         }
         numberOfBuses.setText(""+nBuses);
 
+
+
+        String countRelation = "SELECT COUNT(id) FROM Ticket";
+
+        Statement RelationStatement = connectDB.createStatement();
+        ResultSet countRelations_result = RelationStatement.executeQuery(countRelation);
+
+        int nRelations = 0;
+        while(countRelations_result.next()){
+            nRelations = (countRelations_result.getInt(1));
+        }
+        numberOfRelations.setText(""+nRelations);
+
+        /*
+        String strani = "SELECT name FROM Bus INNER JOIN ticket ON bus.id= ticket.bus_fk WHERE bus.id=1";
+
+        Statement a = connectDB.createStatement();
+        ResultSet b = a.executeQuery(strani);
+
+        if(b.next()) {
+            labela.setText("" +b.getInt("name"));
+        }
+*/
 
     }
 
