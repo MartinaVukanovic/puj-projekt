@@ -18,9 +18,6 @@ public class Ticket extends Table {
     @ForeignKey(table = "Bus", attribute = "id")
     int bus_fk;
 
-    @Entity(type="INTEGER", size=32)
-    @ForeignKey(table = "User", attribute = "id")
-    int user_fk;
 
     public int getPrice() {
         return Price;
@@ -30,13 +27,6 @@ public class Ticket extends Table {
         Price = price;
     }
 
-    public User getUser_fk() throws Exception {
-        return (User) Table.get(User.class, bus_fk);
-    }
-
-    public void setUser_fk(int user_fk) {
-        this.user_fk = user_fk;
-    }
 
     public int getId() {
         return id;

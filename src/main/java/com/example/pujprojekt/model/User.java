@@ -17,6 +17,7 @@ public class User extends Table {
     @Entity(type="VARCHAR", size=50, isnull = false)
     String role;
 
+
     public int getId() {
         return id;
     }
@@ -56,5 +57,6 @@ public class User extends Table {
     public void setRole(String role) {
         this.role = role;
     }
+
 
 }

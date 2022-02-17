@@ -60,7 +60,7 @@ public class AdminPanelController {
     protected void goToAllRelations() throws IOException {
         Main.showWindow(
                 "/showRelations.fxml",
-                "all relations", 620, 395);
+                "all relations", 680, 420);
     }
 
 
@@ -127,16 +127,7 @@ public class AdminPanelController {
         }
         numberOfRelations.setText(""+nRelations);
 
-        /*
-        String strani = "SELECT name FROM Bus INNER JOIN ticket ON bus.id= ticket.bus_fk WHERE bus.id=1";
 
-        Statement a = connectDB.createStatement();
-        ResultSet b = a.executeQuery(strani);
-
-        if(b.next()) {
-            labela.setText("" +b.getInt("name"));
-        }
-*/
 
     }
 

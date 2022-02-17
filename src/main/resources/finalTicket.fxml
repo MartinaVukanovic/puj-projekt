@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="298.0" prefWidth="600.0" style="-fx-background-color: #8B9783;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.pujprojekt.controller.FinaLTicketController">
+   <children>
+      <Button layoutX="519.0" layoutY="22.0" mnemonicParsing="false" onAction="#goToUserView" style="-fx-background-color: #8B9783;" text="back" textFill="WHITE">
+         <font>
+            <Font name="Century Gothic" size="13.0" />
+         </font>
+      </Button>
+      <AnchorPane layoutX="124.0" layoutY="40.0" prefHeight="220.0" prefWidth="350.0" style="-fx-background-color: #9CA496;">
+         <children>
+            <Label fx:id="labela" alignment="TOP_RIGHT" layoutX="185.0" layoutY="31.0" prefWidth="150.0" text="Label" textFill="WHITE">
+               <font>
+                  <Font name="Century Gothic Bold" size="14.0" />
+               </font>
+            </Label>
+            <Button fx:id="buy" alignment="CENTER" layoutX="115.0" layoutY="162.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="120.0" style="-fx-background-color: #D8F3C6;" text="buy this ticket" textAlignment="CENTER">
+               <font>
+                  <Font name="Century Gothic Bold" size="13.0" />
+               </font>
+            </Button>
+            <Label fx:id="labela1" alignment="TOP_RIGHT" layoutX="185.0" layoutY="56.0" prefHeight="18.0" prefWidth="150.0" text="Label" textFill="WHITE">
+               <font>
+                  <Font name="Century Gothic Bold" size="14.0" />
+               </font>
+            </Label>
+            <Label fx:id="labela2" alignment="TOP_RIGHT" layoutX="184.0" layoutY="84.0" prefHeight="18.0" prefWidth="150.0" text="Label" textFill="WHITE">
+               <font>
+                  <Font name="Century Gothic Bold" size="14.0" />
+               </font>
+            </Label>
+            <Label fx:id="labela3" alignment="TOP_RIGHT" layoutX="185.0" layoutY="110.0" prefHeight="18.0" prefWidth="150.0" text="Label" textFill="WHITE">
+               <font>
+                  <Font name="Century Gothic Bold" size="14.0" />
+               </font>
+            </Label>
+            <Label fx:id="labela4" alignment="TOP_LEFT" layoutX="15.0" layoutY="35.0" prefWidth="150.0" text="bus company" textFill="WHITE">
+               <font>
+                  <Font name="Century Gothic Bold" size="14.0" />
+               </font>
+            </Label>
+            <Label fx:id="labela11" alignment="TOP_LEFT" layoutX="15.0" layoutY="60.0" prefHeight="18.0" prefWidth="150.0" text="start point" textFill="WHITE">
+               <font>
+                  <Font name="Century Gothic Bold" size="14.0" />
+               </font>
+            </Label>
+            <Label fx:id="labela21" alignment="TOP_LEFT" layoutX="14.0" layoutY="88.0" prefHeight="18.0" prefWidth="150.0" text="end point" textFill="WHITE">
+               <font>
+                  <Font name="Century Gothic Bold" size="14.0" />
+               </font>
+            </Label>
+            <Label fx:id="labela31" alignment="TOP_LEFT" layoutX="15.0" layoutY="114.0" prefHeight="18.0" prefWidth="150.0" text="price" textFill="WHITE">
+               <font>
+                  <Font name="Century Gothic Bold" size="14.0" />
+               </font>
+            </Label>
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>

@@ -25,13 +25,13 @@ public class Main extends Application {
             stage.setScene(scene);
             stage.show();
 */
-        } catch(Exception e) {
+        } catch (Exception e) {
             System.out.println(e.getMessage());
         }
 
 
         Main.primaryStage = stage;
-         Main.showWindow(
+        Main.showWindow(
                 "/Register.fxml",
                 "Register", 480, 300);
     }
@@ -44,19 +44,29 @@ public class Main extends Application {
     }
 
     public static void main(String[] args) {
-/*
+
         try {
-            Table.create( x .class);
+
+/*
+            Table.create(Bus.class);
+            Table.create(BusSeat.class);
+
+            Table.create(Ticket.class);
+
+
+            Table.create(User_Ticket.class);
+
         } catch (SQLException e) {
             System.out.println(e.getMessage());
 
-
- */
+*/
             launch();
+        } finally {
+
         }
 
 
+    }
 }
-
 
 

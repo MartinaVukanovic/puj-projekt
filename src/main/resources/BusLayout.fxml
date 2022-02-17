@@ -11,7 +11,7 @@
 
 <AnchorPane prefHeight="516.0" prefWidth="700.0" style="-fx-background-color: EAEAEA;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.pujprojekt.controller.BusLayoutController">
    <children>
-      <Button layoutX="623.0" layoutY="21.0" mnemonicParsing="false" onAction="#goToUserView" style="-fx-background-color: EAEAEA;" text="back">
+      <Button layoutX="583.0" layoutY="41.0" mnemonicParsing="false" onAction="#goToUserView" style="-fx-background-color: EAEAEA;" text="back" AnchorPane.rightAnchor="40.0" AnchorPane.topAnchor="40.0">
          <font>
             <Font name="Century Gothic" size="12.0" />
          </font>
@@ -35,16 +35,19 @@
             <Font name="Century Gothic" size="13.0" />
          </font>
       </Label>
-      <Label fx:id="busCompany" layoutX="347.0" layoutY="79.0" prefHeight="18.0" prefWidth="286.0" text=" " />
-      <HBox fx:id="container2" layoutX="61.0" layoutY="120.0" prefHeight="26.0" prefWidth="300.0" snapToPixel="false" />
-      <HBox fx:id="container21" layoutX="61.0" layoutY="147.0" maxWidth="300.0" minWidth="300.0" prefHeight="26.0" prefWidth="300.0" snapToPixel="false">
+      <Label fx:id="busCompany" layoutX="347.0" layoutY="79.0" prefHeight="18.0" prefWidth="286.0" text=" ">
+         <font>
+            <Font name="Century Gothic" size="13.0" />
+         </font></Label>
+      <HBox fx:id="container2" layoutX="67.0" layoutY="115.0" prefHeight="26.0" prefWidth="300.0" snapToPixel="false" />
+      <HBox fx:id="container21" layoutX="67.0" layoutY="142.0" maxWidth="300.0" minWidth="300.0" prefHeight="26.0" prefWidth="300.0" snapToPixel="false">
          <opaqueInsets>
             <Insets />
          </opaqueInsets>
       </HBox>
-      <HBox fx:id="container22" layoutX="61.0" layoutY="228.0" prefHeight="26.0" prefWidth="300.0" snapToPixel="false" />
-      <HBox fx:id="container221" layoutX="61.0" layoutY="255.0" prefHeight="26.0" prefWidth="300.0" snapToPixel="false" />
-      <ImageView fitHeight="186.0" fitWidth="214.0" layoutX="237.0" layoutY="298.0" pickOnBounds="true">
+      <HBox fx:id="container22" layoutX="67.0" layoutY="223.0" prefHeight="26.0" prefWidth="300.0" snapToPixel="false" />
+      <HBox fx:id="container221" layoutX="67.0" layoutY="250.0" prefHeight="26.0" prefWidth="300.0" snapToPixel="false" />
+      <ImageView fitHeight="186.0" fitWidth="214.0" layoutX="240.0" layoutY="309.0" nodeOrientation="INHERIT" pickOnBounds="true" AnchorPane.leftAnchor="240.0" AnchorPane.rightAnchor="246.0">
          <image>
             <Image url="@img/choice.png" />
          </image>

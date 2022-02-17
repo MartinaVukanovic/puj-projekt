@@ -6,7 +6,11 @@ import com.example.pujprojekt.model.Bus;
 import com.example.pujprojekt.model.BusSeat;
 import com.example.pujprojekt.model.Table;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.geometry.Insets;
+import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.layout.AnchorPane;
@@ -27,6 +31,7 @@ public class BusLayoutController {
     public static Integer numberOfSeat;
     public static Integer capacity_Bus;
     public static Integer free;
+    public static String username;
 
     @FXML
     Label labela;
@@ -60,6 +65,11 @@ public class BusLayoutController {
     @FXML
     private List<Button> labels ;
 
+
+    private Stage stage;
+    private Scene scene;
+    private Parent root;
+
     @FXML
     protected void goToUserView() throws IOException {
         Main.showWindow(
@@ -81,8 +91,7 @@ public class BusLayoutController {
             Class.forName("com.mysql.cj.jdbc.Driver");
             bazaLink = DriverManager.getConnection(url, bazaKorisnik, bazaLozinka);
         }catch(Exception e){
-            e.printStackTrace();
-            e.getCause();
+            System.out.println(e.getMessage());
         }
         return bazaLink;
     }
@@ -121,7 +130,7 @@ public class BusLayoutController {
         labels = new ArrayList<>();
 
             Button label = new Button(""+numberOfSeat);
-                label.setId(""+i);
+                label.setId(""+id_BusSeat);
                 String id = label.getId();
 
                 if(free==0){
@@ -138,21 +147,26 @@ public class BusLayoutController {
 
 
                 label.setOnAction(event -> {
-                    String updateBusSeat = "UPDATE `busseat` SET `free`='1' WHERE id ='" + id + "'";
-                    Statement statement1 = null;
+
+                    FXMLLoader loader = new FXMLLoader(getClass().getResource("/finalTicket.fxml"));
                     try {
-                        statement1 = connectDB.createStatement();
-                    } catch (SQLException e) {
+                        root = loader.load();
+                    } catch (IOException e) {
                         System.out.println(e.getMessage());
                     }
+
+                    FinaLTicketController finalController = loader.getController();
                     try {
-                        int resultOfUpdate = statement1.executeUpdate(updateBusSeat);
-                        System.out.println(resultOfUpdate + "rez");
+                        finalController.display(id,numberOfSeat,bus_fk);
                     } catch (SQLException e) {
                         System.out.println(e.getMessage());
                     }
 
-                    System.out.println(id);
+                    stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+                    scene = new Scene(root);
+                    stage.setScene(scene);
+                    stage.show();
+
 
                 });
 
@@ -179,7 +193,7 @@ public class BusLayoutController {
                     labels = new ArrayList<>();
 
                     Button label = new Button(""+numberOfSeat);
-                    label.setId(""+(j+2));
+                    label.setId(""+id_BusSeat);
                     String id = label.getId();
 
                     if(free==0){
@@ -195,21 +209,24 @@ public class BusLayoutController {
                     }
 
                     label.setOnAction(event -> {
-                        String updateBusSeat = "UPDATE `busseat` SET `free`='1' WHERE id ='" + id + "'";
-                        Statement statement1 = null;
+                        FXMLLoader loader = new FXMLLoader(getClass().getResource("/finalTicket.fxml"));
                         try {
-                            statement1 = connectDB.createStatement();
-                        } catch (SQLException e) {
+                            root = loader.load();
+                        } catch (IOException e) {
                             System.out.println(e.getMessage());
                         }
+
+                        FinaLTicketController finalController = loader.getController();
                         try {
-                            int resultOfUpdate = statement1.executeUpdate(updateBusSeat);
-                            System.out.println(resultOfUpdate + "rez");
+                            finalController.display(id,numberOfSeat,bus_fk);
                         } catch (SQLException e) {
                             System.out.println(e.getMessage());
                         }
 
-                        System.out.println(id);
+                        stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+                        scene = new Scene(root);
+                        stage.setScene(scene);
+                        stage.show();
 
                     });
 
@@ -249,22 +266,24 @@ public class BusLayoutController {
                     }
 
                     label.setOnAction(event -> {
-                        String updateBusSeat = "UPDATE `busseat` SET `free`='1' WHERE id ='" + id + "'";
-                        Statement statement1 = null;
+                        FXMLLoader loader = new FXMLLoader(getClass().getResource("/finalTicket.fxml"));
                         try {
-                            statement1 = connectDB.createStatement();
-                        } catch (SQLException e) {
-                            System.out.println(e.getMessage());
-                        }
-                        try {
-                            int resultOfUpdate = statement1.executeUpdate(updateBusSeat);
-
-                        } catch (SQLException e) {
+                            root = loader.load();
+                        } catch (IOException e) {
                             System.out.println(e.getMessage());
                         }
 
-                        System.out.println(id);
+                        FinaLTicketController finalController = loader.getController();
+                        try {
+                            finalController.display(id,numberOfSeat,bus_fk);
+                        } catch (SQLException e) {
+                            System.out.println(e.getMessage());
+                        }
 
+                        stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+                        scene = new Scene(root);
+                        stage.setScene(scene);
+                        stage.show();
                     });
 
 
@@ -300,19 +319,25 @@ public class BusLayoutController {
                     }
 
                     label.setOnAction(event -> {
-                        String updateBusSeat = "UPDATE `busseat` SET `free`='1' WHERE id ='" + id + "'";
-                        Statement statement1 = null;
+
+                        FXMLLoader loader = new FXMLLoader(getClass().getResource("/finalTicket.fxml"));
                         try {
-                            statement1 = connectDB.createStatement();
+                            root = loader.load();
+                        } catch (IOException e) {
+                            System.out.println(e.getMessage());
+                        }
+
+                        FinaLTicketController finalController = loader.getController();
+                        try {
+                            finalController.display(id,numberOfSeat,bus_fk);
                         } catch (SQLException e) {
                             System.out.println(e.getMessage());
                         }
-                        try {
-                            int resultOfUpdate = statement1.executeUpdate(updateBusSeat);
-                            System.out.println(resultOfUpdate + "rez");
-                        } catch (SQLException e) {
-                            System.out.println(e.getMessage());
-                        }
+
+                        stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+                        scene = new Scene(root);
+                        stage.setScene(scene);
+                        stage.show();
 
 
                     });
@@ -327,10 +352,29 @@ public class BusLayoutController {
     }
 
     public void display(int bus_fk, String start, String end, int price) throws SQLException {
+
+
+
+        Database connectNow = new Database();
+        Connection connectDB = connectNow.getConnection();
+
         startPoint.setText("start point: "  + " " + start);
         endPoint.setText("end point: " + " " + end);
         Price.setText("price of: " + " " + price + " €");
-        busCompany.setText("bus company: " + " " + bus_fk); // da se ispise ime
+        busCompany.setText("bus company: " + " " + bus_fk);
+
+        String sql = "SELECT * FROM Bus WHERE id = '"+ bus_fk + "'";
+
+
+        Statement statement = connectDB.createStatement();
+        ResultSet queryResult = statement.executeQuery(sql);
+
+        if(queryResult.next()){
+            username = queryResult.getString("name");
+            busCompany.setText("bus company: "+ " "  + username);
+
+        }
+
         make(bus_fk);
 
     }

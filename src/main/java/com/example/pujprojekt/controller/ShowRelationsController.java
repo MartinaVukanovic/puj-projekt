@@ -13,12 +13,9 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.cell.PropertyValueFactory;
 
 import java.io.IOException;
-import java.lang.reflect.Field;
 import java.net.URL;
 import java.sql.Connection;
 import java.sql.DriverManager;
-import java.sql.ResultSet;
-import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.ResourceBundle;
@@ -50,7 +47,16 @@ public class ShowRelationsController implements Initializable {
     TableView UserTbl;
 
     @FXML
+    TableView UserTbl1;
+
+    @FXML
     TableColumn RelationID;
+
+    @FXML
+    TableColumn BusID;
+
+    @FXML
+    TableColumn BusName;
 
     @FXML
     TableColumn RelationStart;
@@ -110,6 +116,8 @@ public class ShowRelationsController implements Initializable {
             Ticket c = new Ticket();
             c.setStart(start);
             c.setEnd(end);
+            c.setPrice(Integer.parseInt(price));
+            c.setBus_fk(Integer.parseInt(bus_fk));
             try {
                 c.save();
                 this.RelationStartTxt.setText("");
@@ -140,29 +148,37 @@ public class ShowRelationsController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        this.RelationID.setCellValueFactory(new PropertyValueFactory<>("id"));
         this.RelationStart.setCellValueFactory(new PropertyValueFactory<>("start"));
         this.RelationEnd.setCellValueFactory(new PropertyValueFactory<>("end"));
         this.RelationPrice.setCellValueFactory(new PropertyValueFactory<>("price"));
         this.RelationBusCompany.setCellValueFactory(new PropertyValueFactory<>("bus_fk"));
 
+
+        this.BusID.setCellValueFactory(new PropertyValueFactory<>("id"));
+        this.BusName.setCellValueFactory(new PropertyValueFactory<>("name"));
+
         this.fillUsers();
-
-        lista.add("Flix bus");
-        lista.add("Croatia bus");
-
-        combo.setItems(FXCollections.observableArrayList(lista));
-
+        this.fillBuses();
 
     }
 
-// funkcija iz Table.java
+
 
     private void fillUsers(){
         try {
             List<?> usersList = Table.listTicket(Ticket.class);
             ObservableList<?> usersObservableList = FXCollections.observableList(usersList);
             this.UserTbl.setItems(usersObservableList);
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
+    }
+
+    private void fillBuses(){
+        try {
+            List<?> usersList = Table.list(Bus.class);
+            ObservableList<?> usersObservableList = FXCollections.observableList(usersList);
+            this.UserTbl1.setItems(usersObservableList);
         } catch (Exception e) {
             System.out.println(e.getMessage());
         }

@@ -7,9 +7,9 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane onMouseClicked="#removeSelection" prefHeight="336.0" prefWidth="600.0" style="-fx-background-color: #9DACB2;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.pujprojekt.controller.UserViewController">
+<AnchorPane onMouseClicked="#removeSelection" prefHeight="336.0" prefWidth="566.0" style="-fx-background-color: #9DACB2;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.pujprojekt.controller.UserViewController">
     <children>
-        <Button layoutX="519.0" layoutY="15.0" mnemonicParsing="false" onAction="#goToLogin" style="-fx-background-color: #9DACB2;" text="sign out" textFill="WHITE">
+        <Button layoutX="485.0" layoutY="15.0" mnemonicParsing="false" onAction="#goToLogin" style="-fx-background-color: #9DACB2;" text="sign out" textFill="WHITE">
             <font>
                 <Font name="Century Gothic" size="13.0" />
             </font>
@@ -19,15 +19,14 @@
                 <Font name="Century Gothic Bold" size="12.0" />
             </font>
         </Label>
-        <TableView fx:id="UserTbl" layoutX="54.0" layoutY="87.0" onMouseClicked="#selectUser" prefHeight="180.0" prefWidth="444.0" style="-fx-background-color: EAEAEA;">
+        <TableView fx:id="UserTbl" layoutX="54.0" layoutY="78.0" onMouseClicked="#selectUser" prefHeight="180.0" prefWidth="406.0" style="-fx-background-color: EAEAEA;">
             <columns>
-                <TableColumn fx:id="RelationStart" prefWidth="115.0" text="start" />
-                <TableColumn fx:id="RelationEnd" prefWidth="109.60003662109375" text="end" />
-                <TableColumn fx:id="RelationPrice" prefWidth="75.99993896484375" text="price" />
-                <TableColumn fx:id="RelationBusCompany" prefWidth="138.0" text="bus company" />
+                <TableColumn fx:id="RelationStart" prefWidth="155.20001983642578" text="start" />
+                <TableColumn fx:id="RelationEnd" prefWidth="135.199951171875" text="end" />
+                <TableColumn fx:id="RelationPrice" prefWidth="112.0" text="price" />
             </columns>
         </TableView>
-        <Button fx:id="choose" layoutX="195.0" layoutY="281.0" mnemonicParsing="false" onAction="#goToBusLayout" prefHeight="27.0" prefWidth="162.0" style="-fx-background-color: #EAEAEA; -fx-background-radius: 5;" text="choose this relation" textFill="#47565c">
+        <Button fx:id="choose" layoutX="176.0" layoutY="279.0" mnemonicParsing="false" onAction="#goToBusLayout" prefHeight="27.0" prefWidth="162.0" style="-fx-background-color: #EAEAEA; -fx-background-radius: 5;" text="choose this relation" textFill="#47565c">
             <font>
                 <Font name="Century Gothic" size="12.0" />
             </font>

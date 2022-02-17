@@ -32,7 +32,7 @@ public class RegisterController {
 
 
     @FXML
-    protected void Register() {
+    protected void Register() throws IOException {
         String username = this.UserName.getText().toString();
         String email = this.UserEmail.getText().toString();
         String password = this.UserPassword.getText().toString();
@@ -47,8 +47,13 @@ public class RegisterController {
             User n = new User();
             n.setName(username);
             n.setEmail(email);
+            n.setRole("user");
             n.setPassword(password);
+
             errorMsg.setText("User registered successfully!");
+            Main.showWindow(
+                    "/userView.fxml",
+                    "user view", 566, 336);
             try {
                 n.save();
             } catch (Exception e) {

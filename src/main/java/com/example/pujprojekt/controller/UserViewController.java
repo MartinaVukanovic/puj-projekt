@@ -113,7 +113,6 @@ public class UserViewController implements Initializable {
         this.RelationStart.setCellValueFactory(new PropertyValueFactory<>("start"));
         this.RelationEnd.setCellValueFactory(new PropertyValueFactory<>("end"));
         this.RelationPrice.setCellValueFactory(new PropertyValueFactory<>("price"));
-        this.RelationBusCompany.setCellValueFactory(new PropertyValueFactory<>("bus_fk"));
 
         this.fillUsers();
 
